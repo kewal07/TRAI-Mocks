@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple icons</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+	  
+	  var markers = [
+        ['Ranchi, kantatoli(Signal Strength:21dBm)', 23,85],
+        ['Dhanbad, Bank More(Signal Strength: 3dBm)', 23.499633,86],
+		['Goa, Calungate beach', 15, 74.8],
+		['Mumbai', 20, 76],
+		['Hyderabad', 16, 80],
+	  ];
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: 21, lng: 78}
+        });
+
+        var image = 'http://i.imgur.com/kT2s9Ol.png';
+		
+		for( i = 0; i < markers.length; i++ ) {
+			var beachMarker = new google.maps.Marker({
+			  position: new google.maps.LatLng(markers[i][1], markers[i][2]),
+			  map: map,
+			  icon: image
+			});
+		}
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMXyHA4yl-ST2Bn_qXgb-4shBKFFRL0fA&callback=initMap">
+    </script>
+  </body>
+</html>
